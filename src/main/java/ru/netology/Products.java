@@ -1,5 +1,6 @@
 package ru.netology;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
@@ -10,7 +11,6 @@ public class Products {
 
     public Products(List<Product> products) {
         this.products = products;
-        System.out.println(products.getClass());
     }
 
     public Products filter(Predicate<Product> predicate) {

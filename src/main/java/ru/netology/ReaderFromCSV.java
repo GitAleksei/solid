@@ -6,13 +6,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.List;
 
-public class ReaderFromCSV {
+public class ReaderFromCSV implements MyReader {
     private final File file;
 
     public ReaderFromCSV(String name) {
         this.file = new File(name);
     }
 
+    @Override
     public Products read() {
         List<Product> productList = null;
         try (FileReader fileReader = new FileReader(file)) {

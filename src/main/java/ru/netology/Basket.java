@@ -43,7 +43,7 @@ public class Basket {
                     .append(String.format("%20d", idCounts.get(product.getId())))
                     .append("\n");
         }
-        result.append(String.format("%83s%20.2f", "Total price:", getSumPrice()))
+        result.append(String.format("%84s%20.2f", "Total price:", getSumPrice()))
                 .append("\n");
         return result.toString();
     }

@@ -21,6 +21,10 @@ public class Products {
         return products.get(i);
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

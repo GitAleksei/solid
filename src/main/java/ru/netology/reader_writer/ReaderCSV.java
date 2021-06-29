@@ -1,4 +1,4 @@
-package ru.netology.reader;
+package ru.netology.reader_writer;
 
 import com.opencsv.bean.*;
 import ru.netology.Product;
@@ -6,12 +6,13 @@ import ru.netology.Products;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.List;
 
-public class ReaderFromCSV implements MyReader {
+public class ReaderCSV implements MyReader{
     private final File file;
 
-    public ReaderFromCSV(String name) {
+    public ReaderCSV(String name) {
         this.file = new File(name);
     }
 

@@ -1,8 +1,6 @@
-package ru.netology.reader;
+package ru.netology.reader_writer;
 
 import ru.netology.Products;
-
-import java.util.List;
 
 public interface MyReader {
     Products read();

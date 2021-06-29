@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
     @CsvBindByName
+    private int id;
+    @CsvBindByName
     private String name;
     @CsvBindByName
     private String manufacturer;
@@ -13,20 +15,21 @@ public class Product implements Serializable {
     private String countryOfOrigin;
     @CsvBindByName
     private double price;
-    @CsvBindByName
-    private int count;
 
     public Product() {
 
     }
 
-    public Product(String name, String manufacturer, String countryOfOrigin, double price,
-                   int count) {
+    public Product(int id, String name, String manufacturer, String countryOfOrigin, double price) {
+        this.id = id;
         this.name = name;
         this.manufacturer = manufacturer;
         this.countryOfOrigin = countryOfOrigin;
         this.price = price;
-        this.count = count;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -45,8 +48,8 @@ public class Product implements Serializable {
         return price;
     }
 
-    public int getCount() {
-        return count;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -65,12 +68,8 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     @Override
     public String toString() {
-        return String.format("%20s%15s%15s%15.2f", name, manufacturer, countryOfOrigin, price);
+        return String.format("%20s%20s%20s%20.2f", name, manufacturer, countryOfOrigin, price);
     }
 }

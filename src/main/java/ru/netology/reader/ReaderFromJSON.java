@@ -1,8 +1,10 @@
-package ru.netology;
+package ru.netology.reader;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import ru.netology.Product;
+import ru.netology.Products;
 
 import java.io.BufferedReader;
 import java.io.File;

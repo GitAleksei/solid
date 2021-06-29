@@ -1,6 +1,8 @@
-package ru.netology;
+package ru.netology.reader;
 
 import com.opencsv.bean.*;
+import ru.netology.Product;
+import ru.netology.Products;
 
 import java.io.File;
 import java.io.FileReader;

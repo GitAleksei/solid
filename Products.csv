@@ -1,9 +1,13 @@
-name,manufacturer,countryOfOrigin,price,count
-phone,Samsung,South Korea,29999,33
-vacuum cleaner,Xiaomi,China,20100,17
-monitor,Samsung,South Korea,19999,101
-keyboard,Logitech,Switzerland,1200,45
-mouse,Logitech,Switzerland,500,39
-notebook,Xiaomi,China,44500,15
-monitor,AOC,China,14800,22
-desktop speakers,Logitech,Switzerland,890,5
+id,name,manufacturer,countryOfOrigin,price
+0,phone,Samsung,South Korea,29999
+1,vacuum cleaner,Xiaomi,China,20100
+2,monitor,Samsung,South Korea,19999
+3,keyboard,Logitech,Switzerland,1200
+4,mouse,Logitech,Switzerland,500
+5,notebook,Xiaomi,China,44500
+6,monitor,AOC,China,14800
+7,desktop speakers,Logitech,Switzerland,890
+8,phone,Google,USA,55000
+9,headphones,Xiaomi,China,2000
+10,router,Cisco,USA,15390
+11,router,Huawei,China,13300

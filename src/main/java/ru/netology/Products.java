@@ -1,7 +1,5 @@
 package ru.netology;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -19,12 +17,18 @@ public class Products {
                 .collect(Collectors.toList()));
     }
 
+    public Product get(int i) {
+        return products.get(i);
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
+        result.append(String.format("%24s%20s%20s%20s", "name:", "manufacturer:", "countryOfOrigin:", "price:"))
+                .append("\n");
         int i = 1;
         for (Product product : products) {
-            result.append(i++)
+            result.append(String.format("%2d", i++))
                     .append(". ")
                     .append(product.toString())
                     .append("\n");

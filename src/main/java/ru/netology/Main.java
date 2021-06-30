@@ -1,8 +1,11 @@
 package ru.netology;
 
+import ru.netology.bill.Bill;
+import ru.netology.bill.tax_type.TaxTypeRu;
 import ru.netology.reader_writer.MyReader;
 import ru.netology.reader_writer.ReaderCSV;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
@@ -25,9 +28,8 @@ public class Main {
             System.out.println("1) Filter the list of products");
             System.out.println("2) Select products");
             System.out.println("3) Go to your basket");
-            System.out.println("4) See the recommended");
-            System.out.println("5) Exit");
-            System.out.print("Enter 1-5: ");
+            System.out.println("4) Exit");
+            System.out.print("Enter 1-4: ");
 
             String answer = scanner.nextLine();
 
@@ -42,12 +44,9 @@ public class Main {
                     processingBasket();
                     break;
                 case "4":
-                    processingRecommended();
-                    break;
-                case "5":
                     return;
                 default:
-                    System.out.println("You need to enter 1-5");
+                    System.out.println("You need to enter 1-4");
             }
         }
     }
@@ -63,7 +62,10 @@ public class Main {
             String answer = scanner.nextLine();
             switch (answer) {
                 case "1":
+                    Bill bill = new Bill(BigDecimal.valueOf(basket.getSumPrice()), new TaxTypeRu());
+                    System.out.println(bill);
                     System.out.println("Send order");
+                    scanner.nextLine();
                     return;
                 case "2":
                     basket = new Basket();
@@ -77,17 +79,23 @@ public class Main {
     }
 
     private static void requestSelectProduct(Products products) {
-        System.out.println("Select product and count to put in your basket(x y): ");
-        String select = scanner.nextLine();
-        String[] parts = select.split(" ");
-        int numberOfProduct = Integer.parseInt(parts[0]) - 1;
-        int countOfProduct = Integer.parseInt(parts[1]);
-        basket.put(products.get(numberOfProduct), countOfProduct);
+        try {
+            System.out.println("Select product and count to put in your basket(x y): ");
+            String select = scanner.nextLine();
+
+            String[] parts = select.split(" ");
+            int numberOfProduct = Integer.parseInt(parts[0]) - 1;
+            int countOfProduct = Integer.parseInt(parts[1]);
+
+            basket.put(products.get(numberOfProduct), countOfProduct);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static Products requestFilter(Products products) {
-        boolean exit = false;
-        while (!exit) {
+        while (true) {
             System.out.println(products);
             System.out.println("1) Filter by keyword in name");
             System.out.println("2) Filter by price");
@@ -124,18 +132,11 @@ public class Main {
                     break;
 
                 case "5":
-                    exit = true;
-                    break;
+                    return products;
 
                 default:
                     System.out.println("You need to enter 1-5");
             }
         }
-
-        return products;
     }
-
-    private static void processingRecommended() {
-    }
-
 }
